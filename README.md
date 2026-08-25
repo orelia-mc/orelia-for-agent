@@ -11,6 +11,7 @@ orelia-for-agent/
 ├── skills/                     # タスク別のSKILL.md（Claude Codeのスキル形式）
 │   ├── orelia-gui-screen/      # インベントリGUI画面の新規作成・変更
 │   ├── orelia-module/          # 新しいRpgModuleの追加・変更
+│   ├── orelia-combat/          # ダメージ計算・HP同期・武器強化まわりの変更
 │   └── orelia-conventions/     # 横断的な細かいコーディング規約
 └── knowledge/                  # スキルから参照する詳細資料
     ├── architecture.md         # 4リポジトリの関係・モジュール登録順序
@@ -22,8 +23,9 @@ orelia-for-agent/
 | スキル | 使うタイミング |
 |---|---|
 | [`orelia-gui-screen`](skills/orelia-gui-screen/SKILL.md) | GUI画面（インベントリ画面）を作る・直すとき。`ItemBuilder`/`ColorUtil`/`Gui`/`GuiButton`の使い方、`&m`によるバー表現、クリック時のアイテム名・lore更新パターン、確認画面、ページネーションなど |
-| [`orelia-module`](skills/orelia-module/SKILL.md) | 新機能をモジュールとして追加する・既存モジュールを直すとき。登録順序、層構造（repository/model/service/listener/command/gui）、config・messages.yml、DBのSchemaOwner、コマンド登録、APIの公開範囲など |
-| [`orelia-conventions`](skills/orelia-conventions/SKILL.md) | 上記2つのどちらにも当てはまらない、細かいスタイルや判断基準を確認したいとき。カラーコードの使い分け、Javadocの書き方、fail-fast/null-guardの使い分け、テスト方針、複数リポジトリ間の連携ルール |
+| [`orelia-module`](skills/orelia-module/SKILL.md) | 新機能をモジュールとして追加する・既存モジュールを直すとき。登録順序、層構造（repository/model/service/listener/command/gui）、config・messages.yml（`config-version`バンプ含む）、PlayerDataComponent、DBのSchemaOwner、コマンド登録、APIの公開範囲など |
+| [`orelia-combat`](skills/orelia-combat/SKILL.md) | ダメージ計算・HP（スケール値とvanilla健康値の同期）・武器の強化値/レベルを追加・変更するとき。`DamageFormula`の固定順パイプライン、`CombatDamageListener`一本化ルール、`ScaledHealthService`同期漏れの罠、`WeaponIdentityService`の合成順など |
+| [`orelia-conventions`](skills/orelia-conventions/SKILL.md) | 上記のどれにも当てはまらない、細かいスタイルや判断基準を確認したいとき。カラーコードの使い分け、Javadocの書き方、fail-fast/null-guardの使い分け、テスト方針、複数リポジトリ間の連携ルール |
 
 各SKILL.mdは概要と手順に絞り、細かい対応表は `knowledge/` を参照する形にしてある。
 
@@ -35,6 +37,7 @@ orelia-for-agent/
 # 例: orelia-core側にシンボリックリンクで反映する場合
 ln -s ../../orelia-for-agent/skills/orelia-gui-screen ../orelia-core/.claude/skills/orelia-gui-screen
 ln -s ../../orelia-for-agent/skills/orelia-module      ../orelia-core/.claude/skills/orelia-module
+ln -s ../../orelia-for-agent/skills/orelia-combat      ../orelia-core/.claude/skills/orelia-combat
 ln -s ../../orelia-for-agent/skills/orelia-conventions ../orelia-core/.claude/skills/orelia-conventions
 ```
 
