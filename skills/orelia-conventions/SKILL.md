@@ -19,7 +19,7 @@ description: Oreliaプラグイン群（orelia-core/orelia-debug/orelia-serverut
 
 - カスタムパレットは`ColorUtil.CUSTOM_COLORS`に定義済み（`0`〜`9`+`a`〜`h`、それぞれ黒〜茶の18色）。新しい色が要るときはここに1行足すだけでよく、既存の色を上書きしない。
 - 未定義の`&%<char>`は**黙って消えずにそのまま文字として残る**設計（typoがゲーム内で目視できる）。新しい文字を使う前に必ず`CUSTOM_COLORS`に登録してあるか確認する。
-- 詳しい対応表: [`../knowledge/color-codes.md`](../knowledge/color-codes.md)
+- 詳しい対応表: [`../../knowledge/color-codes.md`](../../knowledge/color-codes.md)
 - バー表現（`&m`打ち消し線の繰り返し）は[`orelia-gui-screen`スキル](../orelia-gui-screen/SKILL.md)を参照。
 
 ## Javadoc: 「何をするか」より「なぜこうしたか」
@@ -59,5 +59,5 @@ description: Oreliaプラグイン群（orelia-core/orelia-debug/orelia-serverut
 
 ## 関連知識
 
-- 4リポジトリの全体像・モジュール登録順序: [`../knowledge/architecture.md`](../knowledge/architecture.md)
-- カスタムカラーコード対応表: [`../knowledge/color-codes.md`](../knowledge/color-codes.md)
+- 4リポジトリの全体像・モジュール登録順序: [`../../knowledge/architecture.md`](../../knowledge/architecture.md)
+- カスタムカラーコード対応表: [`../../knowledge/color-codes.md`](../../knowledge/color-codes.md)
