@@ -1,4 +1,4 @@
-# orelia-for-agent
+# orelia-for-agents
 
 Orelia Minecraftプラグイン群（`orelia-core` / `orelia-debug` / `orelia-serverutil` / `orelia-docs`）の開発をAIエージェント（Claude Codeなど）が支援するための、**スキル集**と**参考知識ベース**を置くリポジトリ。
 
